@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useReducer, useState } from "react";
 import "./App.css";
-import { sfx, isMuted, setMuted } from "./sound";
+import { sfx, isMuted, setMuted } from "./soundeffect";
 import { SHAPE_IDS, Shape } from "./shapes";
 import { supabase } from "./supabase";
 import { useRoom } from "./useRoom";
