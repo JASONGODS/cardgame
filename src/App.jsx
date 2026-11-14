@@ -14,6 +14,7 @@ const LEVELS = {
   sulit: { label: "Sulit", size: "6×6", pairs: 18, cols: 6 },
 };
 
+
 const STORAGE_KEY = "memory-game-best";
 const NAME_KEY = "memory-game-name";
 const CODE_CHARS = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; // tanpa O/0/I/1 agar tidak membingungkan
