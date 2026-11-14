@@ -6,6 +6,7 @@ import { supabase } from "./supabase";
 import { useRoom } from "./useRoom";
 import { ProfileBar, Setup, Lobby } from "./Versus";
 
+
 const SYMBOLS = SHAPE_IDS; // 20 bentuk SVG, lihat shapes.jsx
 
 const LEVELS = {
