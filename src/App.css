@@ -766,7 +766,7 @@ html {
 
 body {
   min-height: 100dvh;
-  overflow-x: hidden; /* serpihan combo tidak boleh membuat layar bisa digeser ke samping */
+  overflow-x: clip; /* potong yang meluber tanpa membuat area scroll baru (hidden bermasalah di Android) */
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -1040,5 +1040,63 @@ button {
 
   .room-actions {
     gap: 8px;
+  }
+}
+
+/* ===== Anti-meluber: semua blok boleh menyusut dan tidak boleh lebih lebar dari layar ===== */
+.app > * {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.room-body,
+.room-body > *,
+.join-row > * {
+  min-width: 0;
+}
+
+/* Input mengikuti lebar kolomnya, bukan lebar bawaan browser (sekitar 20 karakter) */
+.input {
+  width: 100%;
+}
+
+.join-row .input.code {
+  width: auto;
+}
+
+.btn {
+  max-width: 100%;
+}
+
+.title {
+  overflow-wrap: anywhere;
+}
+
+/* Layar sangat sempit, atau browser sedang di-zoom */
+@media (max-width: 380px) {
+  .toolbar .levels {
+    flex-wrap: wrap;
+  }
+
+  .toolbar .levels .btn {
+    flex: 1 1 100%;
+  }
+
+  .btn {
+    padding: 6px 8px;
+    font-size: 0.85rem;
+  }
+
+  .room-actions {
+    flex-direction: column;
+  }
+
+  .join-row {
+    flex-direction: column;
+  }
+
+  .code-sticker {
+    font-size: 1.6rem;
+    letter-spacing: 0.1em;
   }
 }
