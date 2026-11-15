@@ -1100,3 +1100,31 @@ button {
     letter-spacing: 0.1em;
   }
 }
+
+/* ===== Netralkan sisa style bawaan template Vite (index.css) ===== */
+:root {
+  background-color: var(--sky);
+  color-scheme: light;
+}
+
+body {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  place-items: normal;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.app {
+  width: 100%;
+}

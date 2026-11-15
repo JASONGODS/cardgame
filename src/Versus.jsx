@@ -66,7 +66,7 @@ export function Setup({ ready, name, setName, joinCode, setJoinCode, onCreate, o
         )}
         <label>
           Nama kamu
-          <input className="input" value={name} maxLength={10} onChange={(e) => setName(e.target.value)} />
+          <input className="input" size={1} value={name} maxLength={10} onChange={(e) => setName(e.target.value)} />
         </label>
         <button className="btn restart" disabled={!ready || !okName} onClick={onCreate}>
           Buat room
@@ -75,6 +75,7 @@ export function Setup({ ready, name, setName, joinCode, setJoinCode, onCreate, o
         <div className="join-row">
           <input
             className="input code"
+            size={1}
             aria-label="Kode room"
             placeholder="KODE"
             value={joinCode}
