@@ -125,9 +125,6 @@ export function Lobby({ code, isHost, status, players, levels, level, setLevel, 
         <div className="code-sticker" aria-label={`Kode room ${code}`}>
           {code}
         </div>
-        <button className="btn" onClick={copy}>
-          {copied ? "Tersalin!" : "Salin link ajakan"}
-        </button>
         {message && <p className="note">{message}</p>}
         {isHost && both && (
           <>
@@ -143,9 +140,14 @@ export function Lobby({ code, isHost, status, players, levels, level, setLevel, 
             </button>
           </>
         )}
-        <button className="btn" onClick={onLeave}>
-          Keluar room
-        </button>
+        <div className="room-actions">
+          <button className="btn" onClick={copy}>
+            {copied ? "Tersalin!" : "Salin link"}
+          </button>
+          <button className="btn" onClick={onLeave}>
+            Keluar
+          </button>
+        </div>
       </div>
     </section>
   );

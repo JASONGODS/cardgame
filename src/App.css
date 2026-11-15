@@ -957,3 +957,88 @@ button {
     font-size: 1.5rem;
   }
 }
+
+/* ===== Layar room (setup + lobby) ===== */
+.room-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.room-actions .btn {
+  flex: 1;
+}
+
+@media (max-width: 600px) {
+  .toolbar {
+    width: 100%;
+  }
+
+  .toolbar .levels {
+    width: 100%;
+  }
+
+  .toolbar .levels .btn {
+    flex: 1;
+  }
+
+  .setup,
+  .lobby {
+    width: 100%;
+  }
+
+  .room-body {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .room-body label {
+    gap: 4px;
+    font-size: 0.9rem;
+  }
+
+  .input {
+    padding: 8px 10px;
+    border-width: 3px;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+
+  .input.code {
+    font-size: 1.2rem;
+  }
+
+  .or {
+    font-size: 0.85rem;
+  }
+
+  .note {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    overflow-wrap: anywhere;
+  }
+
+  .code-sticker {
+    padding: 2px 14px 6px;
+    font-size: 1.9rem;
+    border-width: 3px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+
+  .room-body .levels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .room-body .level {
+    padding: 6px 4px;
+  }
+
+  .room-body .level span {
+    display: block;
+    font-size: 0.75rem;
+  }
+
+  .room-actions {
+    gap: 8px;
+  }
+}
