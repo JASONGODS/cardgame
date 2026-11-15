@@ -59,8 +59,9 @@ export function Setup({ ready, name, setName, joinCode, setJoinCode, onCreate, o
       <div className="room-body">
         {!ready && (
           <p className="note">
-            Multiplayer belum aktif. Isi kunci Supabase di <code>.env.local</code>, lalu jalankan
-            ulang <code>npm run dev</code>.
+            Multiplayer belum aktif: kunci Supabase belum terpasang. Di komputer, isi{" "}
+            <code>.env.local</code> lalu jalankan ulang <code>npm run dev</code>. Di Vercel, isi
+            Environment Variables lalu Redeploy.
           </p>
         )}
         <label>

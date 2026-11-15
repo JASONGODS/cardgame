@@ -624,10 +624,10 @@ button {
 
 @keyframes fly {
   from {
-    transform: rotate(var(--a)) translateX(30px);
+    transform: rotate(var(--a)) translateX(calc(var(--dist, 78px) * 0.4));
   }
   to {
-    transform: rotate(var(--a)) translateX(78px) scale(0.2);
+    transform: rotate(var(--a)) translateX(var(--dist, 78px)) scale(0.2);
   }
 }
 
@@ -756,5 +756,204 @@ button {
   from {
     transform: scale(2.2);
     opacity: 0;
+  }
+}
+
+/* ===== Mobile / Android ===== */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  overflow-x: hidden; /* serpihan combo tidak boleh membuat layar bisa digeser ke samping */
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  touch-action: manipulation; /* hilangkan jeda 300 ms dan zoom ganda saat tap cepat */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.app {
+  padding-bottom: max(48px, calc(env(safe-area-inset-bottom) + 24px));
+}
+
+/* Layar sentuh tidak punya hover: cegah efek "menempel" setelah tap */
+@media (hover: none) {
+  .btn:hover {
+    transform: none;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 var(--ink);
+  }
+  .card:not(.open):hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    animation: none; /* latar bergerak memboroskan baterai dan bikin patah-patah di HP */
+  }
+
+  .app {
+    padding: 14px 10px 32px;
+    gap: 12px;
+  }
+
+  .title {
+    margin: 0;
+    padding: 2px 14px 6px;
+    font-size: clamp(1.6rem, 9vw, 2.1rem);
+    border-width: 3px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+
+  .btn,
+  .btn:hover {
+    min-height: 42px;
+    padding: 6px 12px;
+    font-size: 0.92rem;
+    border-width: 3px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .btn:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0 0 0 var(--ink);
+  }
+
+  .restart,
+  .restart:hover {
+    padding: 10px 22px;
+    font-size: 1.05rem;
+  }
+
+  .stats {
+    gap: 8px;
+  }
+
+  .stats > div {
+    padding: 6px 4px;
+    border-width: 3px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .stats dt {
+    font-size: 0.72rem;
+  }
+
+  .stats dd {
+    font-size: 1.05rem;
+  }
+
+  .combo-slot {
+    min-height: 38px;
+  }
+
+  .combo {
+    font-size: 1.15rem;
+  }
+
+  /* Papan memenuhi lebar layar supaya kartu sebesar mungkin */
+  .panel {
+    width: 100%;
+    border-width: 3px;
+    border-radius: 14px;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+
+  .panel-bar {
+    padding: 6px 10px;
+    border-bottom-width: 3px;
+    font-size: 0.85rem;
+  }
+
+  .panel-bar i {
+    width: 12px;
+    height: 12px;
+    border-width: 2px;
+  }
+
+  .board {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .face {
+    border-width: 2px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+
+  .cover::after {
+    text-shadow: 2px 2px 0 var(--ink);
+  }
+
+  /* Profil multiplayer */
+  .vs-bar {
+    gap: 6px;
+  }
+
+  .vs {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+
+  .avatar {
+    width: 62px;
+    height: 62px;
+    border-width: 3px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .pname {
+    font-size: 0.95rem;
+  }
+
+  .pscore {
+    font-size: 0.85rem;
+  }
+
+  .burst {
+    --dist: 50px;
+  }
+
+  .burst .ring {
+    border-width: 4px;
+  }
+
+  .burst b {
+    right: -14px;
+    top: -12px;
+    font-size: 1.05rem;
+  }
+
+  .burst.lv4 b,
+  .burst.lv5 b {
+    font-size: 1.25rem;
+  }
+
+  .room-body {
+    padding: 16px;
+  }
+
+  .code-sticker {
+    font-size: 2.1rem;
+  }
+
+  .dialog {
+    padding: 22px 18px;
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+
+  .dialog h2 {
+    font-size: 1.5rem;
   }
 }
